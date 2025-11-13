@@ -14,15 +14,16 @@ export let options = {
     },
 };
 
-const URL = __ENV.URL || 'https://uat-endpoint.sgcarmart.com/api-ims/api/v1/vehicle/add';
-const TOKEN = __ENV.TOKEN || 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NzQyOTk4MC0xYTMwLTRhZTctOGY3My0xYTA0MDU4OTRmMzQiLCJqdGkiOiJiY2EzZjJjODY3ZjllZWUxYWRhZjcwZWRmNDVkNmU0YjlmZWVmNDFmYjU3YTM1MGFkMGNlZDhhNWQ1ZTdiMmFmYTZiZTAyYzk4ODI3ZWQ5YiIsImlhdCI6MTc2Mjk0Mzg2MS44MzExMjUsIm5iZiI6MTc2Mjk0Mzg2MS44MzExMjgsImV4cCI6MTc2NDIzOTg2MS44MjIyOTcsInN1YiI6IjM1NTYzOSIsInNjb3BlcyI6W119.PHou1qpUjweGXizh8ad-6d8Zcw2RlbewLeAv6pMFvwTSkDS3kFQ0DdSXliNxSuGViKGm5spKO3iqRyEbuM9tTiZ36CextviBvmgW76MhQjjr_ZIR5QUIKL98D2YEA7WKbZmfMxY5tpnWMGkp9VFbpkg7Kb6s0s0X4V2MlFP5tZrtySNeCGpGaGCCiFuPkulYrjmZ00ZVS2X5qSGCsjPuzhYviV2s4ov0lGC2ZlgnS37Jqq08wup0hW4OCEEwqikj7sdN8CjBV-EWebxcNNf6eoJhbVOxFeFFcGWUKNkkxZCeDJmON9P4Tkgns6X-tzk2b0R5Y9U2M7J6YSuob4nF6Mc-mWgo_bupbXDyIYQ2eOeh4mMWBW4AJUGd2jGfPgsF3GgkdHpMB2GOxo_sxPFKou9mjQ2bj316IQSNWiEE88-lZIUo362PIhfhgbYp9w2zzXnkcW0dppX3DGgbRzrZ46kZ8LBukfdtJLNy_3K6yKZyMWtSAgRFgwRi4yzC3K6X7pHC4V_Pn5tlpt2j0kJpYkoSfq5J4E7tYwrNR_t1EyPxFVKgG7HUosN_grmHKVCrjWv3gkcr_Vu1qCF4q9bKiwGwycG2pi9u9AyK5wq82B9On_3xFa2R-OzpVaV5hJizAP_no3jVcI5m6MdNA33NdTbTaWQotnR7Fvpfdo8_1pU';
+const URL = __ENV.URL || 'https://uat-endpoint.sgcarmart.com/api-ims/api/v1/vehicle-add';
+const TOKEN = __ENV.TOKEN || 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZTJmMzM5MS1iNjBmLTRmYjMtOWZmZi0zZTdjY2ZjODJmZDQiLCJqdGkiOiI5ZWFlYzFiOTVmOTIxOTg3MTIwYmUwZTk4M2ExNmY1ZGM5ZjczOThjNjA5NWQ5ZDRmY2U1NjBlYzIzNGQ5MGNjNTk1ZDVlMDE5MDM3ZTBkZSIsImlhdCI6MTc2MzA0MzE0NC42ODEwNywibmJmIjoxNzYzMDQzMTQ0LjY4MTA3MywiZXhwIjoxNzYzMDUwMzQ0LjY0ODk5NCwic3ViIjoiMTA1MjgiLCJzY29wZXMiOltdfQ.eac-iJMYBmQcDXxxFfs3pghIwA8UaLUM6iiMQTI8rerDM92p1SpHylsJEWm_VIKrkTz6IaL9X5NjqjLV0US40CHNSpLKMwzhuov7ZzHd5m6sTL1xkBFCLklJRXlpOPoRf2uWD8g_6FTLPUIURaxtu6kvwUxtQww7VX51hpCL4I4A8lBjpUQNVmILjcE5xymK4WxMQfM0qovngWETgRmxrR0BoRgXn6gdkCa1603ZvZbW0HwRyI4zPkRoRx22mKPO8mYWWMD_-XhW1gBrIhsj3l1r6TXHD5WB-A10eeKsq0uLbdh9GuC5P0ovEAcRBL_0e58XAu1V_1rOQ2vCt39cu6g42HarjQGPN5BPZuX4rPJrSCmvBuBYnp6XirC5dLp6ASRj2rOGOjhFDGlBH76h50xhvRwtA5ZrUYhsDKm2RfoOsxnIYUy1NsLMFbSr9a0dxBo4N0mnzVHHr8O4WOFTgLgbbiDjoljOHG3owUtyr5_RWllT3W01wLCxlRDc9Y3D58JmLg1uH6DGvoY5YnP-JqNC6gsAaUurV0-a46SWjJ9tvo5MRJxmVgh4ukmGtj_ocT4iALRzX4UIW3bl-380tV1alyDV3ZAFEJSNNP8wzOZItIqL8tP7SPCrKCEEiiEXd1pSo_f6zXfx9MG_XZjHKKK2f6BRp9CkSpVHNNhvz2g';
+
 
 export default function () {
-    const payload = {
+    const payloadObj = {
         adtype: 'p',
         starad: '0',
         spotlight: '0',
-        carplate: 'SMU1234',
+        carplate: 'SMU' + randNatural(),
         first_regDate: '2022-09-09',
         regDate: '2024-09-09',
         engCap: '233',
@@ -53,9 +54,13 @@ export default function () {
         easy_mode: '0',
     };
 
+    const body = Object.keys(payloadObj)
+        .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(payloadObj[k])}`)
+        .join('&');
+
     const params = {
         headers: {
-            'Authorization': `Bearer ${TOKEN}`,
+            'Authorization': TOKEN ? `Bearer ${TOKEN}` : '',
             'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json',
             'User-Agent': 'k6/0.40.0',
@@ -63,7 +68,7 @@ export default function () {
         timeout: '60s',
     };
 
-    const res = http.post(URL, payload, params);
+    const res = http.post(URL, body, params);
 
     check(res, {
         'status is 200': (r) => r.status === 200,
@@ -71,8 +76,8 @@ export default function () {
 
     if (res.status === 200) {
         try {
-            const body = res.json();
-            console.log(`INFO: status=200, body=${JSON.stringify(body).slice(0, 2000)}`);
+            const respBody = res.json();
+            console.log(`INFO: status=200, body=${JSON.stringify(respBody).slice(0, 2000)}`);
         } catch (e) {
             console.log(`INFO: status=200, but failed to parse JSON: ${e.message}`);
         }
@@ -81,4 +86,8 @@ export default function () {
     }
 
     sleep(1);
+}
+
+export function randNatural() {
+    return Math.floor(Math.random() * 999999) + 1;
 }
